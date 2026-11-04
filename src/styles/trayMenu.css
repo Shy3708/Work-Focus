@@ -1,0 +1,75 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  overflow: hidden;
+  font-family: 'Segoe UI', 'Microsoft YaHei UI', system-ui, sans-serif;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  padding: 6px;
+}
+
+.tray-menu {
+  width: 100%;
+  height: 100%;
+  padding: 6px;
+  border-radius: 12px;
+  border: 1px solid rgba(198, 230, 255, 0.42);
+  background: linear-gradient(172deg, rgba(46, 86, 128, 0.99), rgba(20, 44, 73, 0.99));
+  box-shadow:
+    0 16px 32px rgba(4, 16, 32, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  display: flex;
+  flex-direction: column;
+}
+
+.tray-menu-item {
+  height: 32px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #ddebf8;
+  font-size: 12.5px;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.tray-menu-item:hover {
+  background: rgba(150, 205, 250, 0.16);
+}
+
+.tray-menu-item.is-danger {
+  color: #ffc9c9;
+}
+
+.tray-menu-item.is-danger:hover {
+  background: rgba(220, 90, 90, 0.18);
+}
+
+.tray-menu-sep {
+  height: 1px;
+  margin: 4px 6px;
+  background: rgba(198, 230, 255, 0.16);
+}
+
+.tray-menu-check {
+  color: #6cc0ff;
+}

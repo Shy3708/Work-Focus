@@ -1,0 +1,92 @@
+:root {
+  /* 玻璃基底与边缘 */
+  --glass-base: rgba(24, 48, 78, 0.78);
+  --glass-highlight: rgba(185, 225, 255, 0.14);
+  --glass-border: rgba(188, 222, 250, 0.34);
+  --glass-shadow: rgba(6, 18, 34, 0.42);
+
+  /* 任务行 / 卡片 */
+  --row-active: rgba(105, 171, 227, 0.23);
+  --row-inactive: linear-gradient(180deg, rgba(255, 255, 255, 0.075) 0%, rgba(255, 255, 255, 0.035) 100%);
+  --row-border-active: rgba(150, 224, 255, 0.42);
+  --row-border-inactive: rgba(196, 224, 250, 0.13);
+
+  /* 文字 */
+  --text-primary: #f3f9ff;
+  --text-secondary: #cfe0f2;
+  --text-inactive: #d7e4f2;
+  --text-muted: rgba(206, 226, 245, 0.64);
+
+  /* 强调色 */
+  --accent: #74ccff;
+  --accent-soft: rgba(116, 204, 255, 0.16);
+  --life: #58e2a8;
+  --life-soft: rgba(88, 226, 168, 0.16);
+  --surface: rgba(255, 255, 255, 0.06);
+  --surface-strong: rgba(255, 255, 255, 0.1);
+  --divider: rgba(196, 224, 250, 0.1);
+
+  /* 灯球 */
+  --blue-core: #93e9ff;
+  --blue-mid: #4cb9f8;
+  --blue-deep: #236fbe;
+  --off-core: #c0d0de;
+  --off-edge: #637b91;
+
+  /* 形体 */
+  --radius-panel: 22px;
+  --radius-row: 14px;
+  --radius-menu: 14px;
+
+  /* 动效 */
+  --animation-fast: 190ms;
+  --animation-hover: 120ms;
+
+  /* 窗口安全外边距（与 electron/windowManager.ts 保持一致） */
+  --window-margin: 12px;
+
+  --font-ui: 'Segoe UI Variable Text', 'Segoe UI Variable', 'Segoe UI', 'Microsoft YaHei UI', 'PingFang SC',
+    sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: transparent;
+  font-family: var(--font-ui);
+  color: var(--text-primary);
+  overflow: hidden;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid rgba(147, 233, 255, 0.66);
+  outline-offset: 2px;
+}

@@ -1,0 +1,63 @@
+.widget-root {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  padding: var(--window-margin);
+  overflow: hidden;
+  display: block;
+}
+
+/*
+ * 面板本体。窗口本身是透明的，所以桌面壁纸能透过来；
+ * 注意：CSS backdrop-filter 无法模糊系统桌面/其他应用窗口，
+ * 这里只做"视觉玻璃"——深蓝半透明基底 + 边缘高光 + 柔和投影。
+ */
+.glass-panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-height: 100%;
+  padding: 18px;
+  border-radius: var(--radius-panel);
+  background:
+    radial-gradient(
+      120% 82% at 8% -12%,
+      rgba(186, 226, 255, 0.17) 0%,
+      rgba(112, 172, 232, 0.08) 34%,
+      rgba(24, 48, 78, 0) 66%
+    ),
+    radial-gradient(96% 60% at 100% 0%, rgba(122, 160, 255, 0.07) 0%, rgba(24, 48, 78, 0) 58%),
+    linear-gradient(160deg, rgba(38, 72, 111, 0.94) 0%, rgba(23, 49, 82, 0.95) 46%, rgba(12, 29, 50, 0.97) 100%);
+  box-shadow:
+    inset 0 0 0 1px var(--glass-border),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -24px 36px -26px rgba(3, 12, 24, 0.7),
+    0 14px 34px rgba(4, 14, 28, 0.5),
+    0 2px 6px rgba(4, 14, 28, 0.3);
+  overflow: visible;
+  isolation: isolate;
+}
+
+/* 左上角冷光折射：一条极细的亮边，不叠加纹理 */
+.glass-panel::before {
+  content: '';
+  z-index: -1;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    152deg,
+    rgba(255, 255, 255, 0.16) 0%,
+    rgba(255, 255, 255, 0.05) 20%,
+    rgba(255, 255, 255, 0) 46%
+  );
+  pointer-events: none;
+}
+
+/* 系统关闭透明/提高对比度时的可靠不透明底色 */
+@media (prefers-contrast: more), (prefers-reduced-transparency: reduce) {
+  .glass-panel {
+    background: linear-gradient(168deg, rgba(21, 45, 74, 0.97), rgba(12, 28, 48, 0.99));
+  }
+}
